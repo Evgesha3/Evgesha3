@@ -1,0 +1,19 @@
+import time
+
+# Имитация базы данных недобросовестных поставщиков
+BLACK_LIST = ["1234567890", "0987654321", "555666777"]
+
+def check_contractor(bin_inn):
+    print(f"[*] Проверка контрагента с БИН/ИНН: {bin_inn}...")
+    time.sleep(1.5) # Эффект работы
+    
+    if bin_inn in BLACK_LIST:
+        return "⚠️ ВНИМАНИЕ: Контрагент найден в реестре недобросовестных поставщиков!"
+    else:
+        return "✅ Контрагент чист. Можно работать."
+
+if __name__ == "__main__":
+    print("--- LegalTech Automation Tool v1.0 ---")
+    user_input = input("Введите БИН/ИНН для проверки: ")
+    result = check_contractor(user_input)
+    print(result)
